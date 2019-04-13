@@ -1,51 +1,39 @@
-$(document).ready(function(){
-    $('#opt1').click(function() {
-        renderFCFSTable()
-        renderFCFSForm()
-    });
-
-    $('#opt2').click(function() {
-        renderSJFTable()
-        renderSJFForm()
-    });
-
-    $('#opt3').click(function() {
-        renderRoundRobinTable()
-        renderSJFForm()
-    });
-
-
-
-
-});
-
-const renderFCFSTable = function(){
+var renderFCFSTable = function(){
 
 $("#process-table-div").load("src/FCFSTable.html")
 
 }
 
-const renderFCFSForm = function(){
+var renderFCFSForm = function(){
 
     $("#create-process-form").load("src/FCFSForm.html")
 
 }
 
-const renderSJFTable = function(){
+var renderSJFTable = function(){
 
     $("#process-table-div").load("src/FCFSTable.html")
     
 }
-    
-const renderSJFForm = function(){
+var renderSJFForm = function(){
 
     $("#create-process-form").load("src/FCFSForm.html")
 
 }
-
-const renderRoundRobinTable = function(){
+var renderRoundRobinTable = function(){
 
     $("#process-table-div").load("src/RoundRobinTable.html")
 }
 
+var renderRoundRobinForm = function(){
+    $("#create-process-form").load("src/RoundRobinForm.html")
+}
+
+var renderPriorityTable = function(){
+    $("#process-table-div").load("src/PriorityTable.html")
+}
+
+var renderPriorityForm = function(){
+    $("#create-process-form").load("src/PriorityForm.html")
+}
 
