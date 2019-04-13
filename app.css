@@ -1,0 +1,73 @@
+h1{
+    text-align: center;
+    text-decoration: blue;    
+    
+}
+
+h5{
+    text-align: center;
+    text-decoration: blue;
+}
+
+#option1{
+    align-self: left;
+}
+
+#optradio{
+    align-self: left;
+}
+
+#opt-btn-container{
+    float: left;
+    color: #000;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    
+}
+
+#radio-buttons{
+    width: 50%;
+}
+
+.container {
+    overflow: hidden;
+}
+.column {
+    float: left;
+    margin: 10px;
+    padding-bottom: 100%;
+    margin-bottom: -100%;
+
+}
+
+#process-table-div{
+    padding-left: 10px;
+    align-self: left;
+  
+    
+    
+    
+}
+
+#process-table{
+    border-top-color: #000;
+    border-top-width: 10px;
+    
+    
+}
+
+#create-process-form{
+    padding-left: 10px;
+    align-items: left;
+}
+
+div[class="row"] {
+    outline: 1px dotted rgba(0, 0, 0, 0.25);
+}
+
+div[class^="col-"] {
+    background-color: rgba(255, 0, 0, 0.2);
+    outline: 1px dotted rgba(0, 0, 0, 0.5);
+    
+}
