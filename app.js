@@ -142,3 +142,120 @@ if(document.getElementById("btn-submit-index")){
 
 
 
+
+document.getElementById("btn-submit-sim").addEventListener('click',function(e){
+    e.preventDefault()
+    var temp = getSelection()
+    console.log(temp)
+
+})
+
+
+// const runSimulation = function(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+// }
+
+var getSelection = function(){
+
+    var data = []
+
+    if(document.querySelector('input[name="optradio"]:checked').value=="fcfs"){
+
+        //console.log(document.getElementById("process-table-index"))
+        //console.log(document.getElementById("process-table-FCFS"))
+        
+        if(document.getElementById("process-table-FCFS")==null){
+            var table = document.getElementById("process-table-index")
+            
+        }else{
+            var table = document.getElementById("process-table-FCFS")
+        }
+
+        for (var i = 1, row; row = table.rows[i]; i++) {
+            //iterate through rows
+            //rows would be accessed using the "row" variable assigned in the for loop
+            var record = []
+            if(row.cells[1].innerText){
+                record.push(row.cells[0].innerText)
+                record.push(row.cells[1].innerText)
+                record.push(row.cells[2].innerText)
+                data.push(record)
+
+            }
+    
+         }
+
+    }else if(document.querySelector('input[name="optradio"]:checked').value=="sjf"){
+        let table =  document.getElementById("process-table-FCFS")
+        for (var i = 1, row; row = table.rows[i]; i++) {
+            //iterate through rows
+            //rows would be accessed using the "row" variable assigned in the for loop
+            var record = []
+            if(row.cells[1].innerText){
+                record.push(row.cells[0].innerText)
+                record.push(row.cells[1].innerText)
+                record.push(row.cells[2].innerText)
+                data.push(record)
+
+            }
+    
+         }
+    }else if(document.querySelector('input[name="optradio"]:checked').value=="rr"){
+        let table =  document.getElementById("process-table-RR")
+        for (var i = 1, row; row = table.rows[i]; i++) {
+            //iterate through rows
+            //rows would be accessed using the "row" variable assigned in the for loop
+            var record = []
+            if(row.cells[1].innerText){
+                record.push(row.cells[0].innerText)
+                record.push(row.cells[1].innerText)
+                record.push(row.cells[2].innerText)
+                data.push(record)
+
+            }
+    
+         }
+    }else if(document.querySelector('input[name="optradio"]:checked').value=="pr"){
+        let table = document.getElementById("process-table-PR")
+        for (var i = 1, row; row = table.rows[i]; i++) {
+            //iterate through rows
+            //rows would be accessed using the "row" variable assigned in the for loop
+            var record = []
+            if(row.cells[1].innerText){
+                record.push(row.cells[0].innerText)
+                record.push(row.cells[1].innerText)
+                record.push(row.cells[2].innerText)
+                data.push(record)
+
+            }
+    
+         }
+    }
+
+    return data
+
+}
+
+
+// var temp = getSelection()
+
+// console.log(temp)
+
+
+
+
+
+
+
