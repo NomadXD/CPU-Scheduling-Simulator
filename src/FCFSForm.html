@@ -13,25 +13,25 @@
   </head>
 
 <body>
-  <label for="create-process-form"><h5>Add Process</h5></label>
-  <form>
+  <label><h5>Add Process</h5></label>
+  <form id="form1" name="demo1">
         <label for="process-id-list">Process ID</label>
-        <select class="form-control form-control-sm" id="process-id-list">
+        <select class="form-control form-control-sm" id="process-id-list-FCFS">
           <option>1</option>
           <option>2</option>
           <option>3</option>
           <option>4</option>
         </select>
           <div class="form-group">
-                  <label for="arrival-time">Arrival time</label>
-                  <input type="text" class="form-control" id="arrival-time" placeholder="Enter arrival time of the process">
+                  <label for="arrival-time-index">Arrival time</label>
+                  <input type="text" class="form-control" id="arrival-time-FCFS" placeholder="Enter arrival time of the process">
                   <!-- <small id="arrival-time-help" class="form-text text-muted">Maximum limit for arrival time:</small> -->
           </div>
           <div class="form-group">
-                  <label for="execute-time">Execute time</label>
-                  <input type="text" class="form-control" id="execute-time" placeholder="Enter execute time of the process">
+                  <label for="execute-time-index">Execute time</label>
+                  <input type="text" class="form-control" id="execute-time-FCFS" placeholder="Enter execute time of the process">
           </div>
-          <button type="submit" class="btn btn-primary">Add process</button>
+          <button type="button" class="btn btn-primary" id="btn-submit-FCFS">Add process</button>
   </form>
 </body>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -40,5 +40,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="../app.js"></script>
+<!-- <script src='FCFS.js'></script> -->
 
 
