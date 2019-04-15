@@ -178,7 +178,8 @@ document.getElementById("btn-submit-sim").addEventListener('click',function(e){
     console.log(temp)
     //runSimulationFCFS(temp)
     //runSimulationSJF(temp)
-    runSimulationPriority(temp)
+    //runSimulationPriority(temp)
+    runRoundRobinSimulation(temp)
 
 })
 
@@ -526,6 +527,138 @@ var runSimulationPriority = function(data){
     animate(totalExecutionTime)
 
     
+
+
+
+}
+
+var runRoundRobinSimulation = function(data){
+
+    //Sort the process data array according to arrival time
+    var sortedData = data.sort(function(a,b){
+        return a[1]-b[1]
+    })
+
+    var quantum = 2;
+
+
+    $('fresh').html('');
+    var th = '';
+    var td = '';
+    var totalExecutionTime = 0;
+    var threshold = 0;
+    console.log(sortedData[0])
+    var e= sortedData[0]
+    //var executeTime = parseInt(e[2]);
+    //var arrivalTime = parseInt(e[1]);
+    //totalExecutionTime+=executeTime;
+    threshold= parseInt(sortedData[0][2])
+    
+    // if(e[0]=="1"){
+    //     th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    // }else if(e[0]=="2"){
+    //     th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    // }else if(e[0]=="3"){
+    //     th += '<th id="three" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    // }else if(e[0]=="4"){
+    //     th += '<th id="four" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    // }
+    
+    //td += '<td>' + executeTime + '</td>';
+    //(sortedTempArr.length==0) ? sortedData.splice(0,1) : sortedData.splice(sortedData.indexOf(sortedTempArr[0]),1)
+    //sortedData.splice(0,1)
+    console.log(sortedData)
+    
+    //Select the next process to run from the arrived processes according to their execution time
+    while(sortedData.length>0){
+        console.log("while")
+        console.log(threshold)
+        var processesArrived=sortedData.filter(function(e){
+            return e[1]<=threshold
+        })
+
+        if(processesArrived.length==0){
+            threshold+=quantum
+        }
+
+        // var processesArrivedSorted = processesArrived.sort(function(a,b){
+        //     return b[3]-a[3]
+        // })
+
+        processesArrived.forEach(function(e){
+            if(e[2]<=quantum){
+                console.log("From 1")
+                threshold+=parseInt(e[2])
+                totalExecutionTime+=parseInt(e[2])
+                if(e[0]=="1"){
+                    th += '<th id="one" style="height: 60px; width: ' + e[2] * 20 + 'px;">P' + e[0] + '</th>';
+                }else if(e[0]=="2"){
+                    th += '<th id="two" style="height: 60px; width: ' + e[2] * 20 + 'px;">P' + e[0] + '</th>';
+                }else if(e[0]=="3"){
+                    th += '<th id="three" style="height: 60px; width: ' + e[2] * 20 + 'px;">P' + e[0] + '</th>';
+                }else if(e[0]=="4"){
+                    th += '<th id="four" style="height: 60px; width: ' + e[2] * 20 + 'px;">P' + e[0] + '</th>';
+                }
+    
+                td += '<td>' + e[2] + '</td>';
+                sortedData.splice(sortedData.indexOf(e),1)
+
+            }else{
+                console.log("From 2")
+                threshold+=quantum
+                totalExecutionTime+=quantum
+                e[2]-=quantum
+                if(e[0]=="1"){
+                    th += '<th id="one" style="height: 60px; width: ' + quantum * 20 + 'px;">P' + e[0] + '</th>';
+                }else if(e[0]=="2"){
+                    th += '<th id="two" style="height: 60px; width: ' + quantum * 20 + 'px;">P' + e[0] + '</th>';
+                }else if(e[0]=="3"){
+                    th += '<th id="three" style="height: 60px; width: ' + quantum * 20 + 'px;">P' + e[0] + '</th>';
+                }else if(e[0]=="4"){
+                    th += '<th id="four" style="height: 60px; width: ' + quantum * 20 + 'px;">P' + e[0] + '</th>';
+                }
+    
+                td += '<td>' + quantum + '</td>';
+
+
+            }
+
+
+
+        })
+
+        // var nextProcess = processesArrivedSorted[0]
+        // var nextProcessIndex = sortedData.indexOf(nextProcess)
+        // var executeTime = parseInt(nextProcess[2]);
+        // var arrivalTime = parseInt(nextProcess[1]);
+        // totalExecutionTime+=executeTime;
+        // threshold+=executeTime
+
+        // if(nextProcess[0]=="1"){
+        //     th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        // }else if(nextProcess[0]=="2"){
+        //     th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        // }else if(nextProcess[0]=="3"){
+        //     th += '<th id="three" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        // }else if(nextProcess[0]=="4"){
+        //     th += '<th id="four" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        // }
+        
+        // td += '<td>' + executeTime + '</td>';
+        // sortedData.splice(nextProcessIndex,1)
+
+
+    }
+
+    $('fresh').html('<table id="resultTable"><tr>'
+    + th
+    + '</tr><tr>'
+    + td
+    + '</tr></table>'
+    );
+    animate(totalExecutionTime)
+
+
 
 
 
