@@ -66,3 +66,51 @@ div[class^="col-"] {
     
 }
 
+#plain {
+    margin: 1em;
+    width: 70%;
+}
+.blue {
+	background: blue;
+}
+		
+.red {
+	background: red;
+}
+.green {
+	background: green;
+}
+		
+.yellow {
+	background: yellow;
+}
+
+#canvas{
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

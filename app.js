@@ -147,6 +147,8 @@ document.getElementById("btn-submit-sim").addEventListener('click',function(e){
     e.preventDefault()
     var temp = getSelection()
     console.log(temp)
+    runSimulationFCFS(temp)
+
 
 })
 
@@ -249,9 +251,59 @@ var getSelection = function(){
 }
 
 
+
+
+
+
+
 // var temp = getSelection()
 
 // console.log(temp)
+
+var runSimulationFCFS = function(data){
+
+    var sortedData = data.sort(function(a,b){
+        return a[1]-b[1]
+    })
+
+    sortedData.forEach(function(e){
+        console.log(e)
+    })
+
+    console.log(sortedData)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
