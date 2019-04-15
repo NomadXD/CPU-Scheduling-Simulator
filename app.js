@@ -177,7 +177,8 @@ document.getElementById("btn-submit-sim").addEventListener('click',function(e){
     var temp = getSelection()
     console.log(temp)
     //runSimulationFCFS(temp)
-    runSimulationSJF(temp)
+    //runSimulationSJF(temp)
+    runSimulationPriority(temp)
 
 })
 
@@ -268,6 +269,7 @@ var getSelection = function(){
                 record.push(row.cells[0].innerText)
                 record.push(row.cells[1].innerText)
                 record.push(row.cells[2].innerText)
+                record.push(row.cells[4].innerText)
                 data.push(record)
 
             }
@@ -355,7 +357,7 @@ var runSimulationSJF =function(data){
 
     console.log(sortedData)
 
-    //
+    
     $('fresh').html('');
     var th = '';
     var td = '';
@@ -423,6 +425,108 @@ var runSimulationSJF =function(data){
     + '</tr></table>'
     );
     animate(totalExecutionTime)
+
+
+}
+
+
+var runSimulationPriority = function(data){
+
+    //Sort the process data array according to arrival time
+    var sortedData = data.sort(function(a,b){
+        return a[1]-b[1]
+    })
+
+    //If there are several processes with the same arrival time, pick the process with the highest priority
+    var tempArr = []
+    var sortedTempArr =[]
+    if(sortedData[0][1]==sortedData[1][1]){
+        console.log("Entered")
+        sortedData.forEach(function(e){
+            if(e[1]==sortedData[0][1]){
+                tempArr.push(e)
+            }
+        })
+        console.log(tempArr)
+
+        sortedTempArr = tempArr.sort(function(a,b){
+            return b[3]-a[3]
+        })
+
+        console.log(sortedTempArr)
+       
+    }
+
+    $('fresh').html('');
+    var th = '';
+    var td = '';
+    var totalExecutionTime = 0;
+    var threshold = 0;
+    console.log(sortedData[0])
+    var e= (sortedTempArr.length==0) ? sortedData[0] : sortedTempArr[0]
+    var executeTime = parseInt(e[2]);
+    var arrivalTime = parseInt(e[1]);
+    totalExecutionTime+=executeTime;
+    threshold=(arrivalTime+executeTime)
+    if(e[0]=="1"){
+        th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    }else if(e[0]=="2"){
+        th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    }else if(e[0]=="3"){
+        th += '<th id="three" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    }else if(e[0]=="4"){
+        th += '<th id="four" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+    }
+    
+    td += '<td>' + executeTime + '</td>';
+    (sortedTempArr.length==0) ? sortedData.splice(0,1) : sortedData.splice(sortedData.indexOf(sortedTempArr[0]),1)
+    //sortedData.splice(0,1)
+    console.log(sortedData)
+    
+    //Select the next process to run from the arrived processes according to their execution time
+    while(sortedData.length>0){
+        
+        var processesArrived=sortedData.filter(function(e){
+            return e[1]<=threshold
+        })
+
+        var processesArrivedSorted = processesArrived.sort(function(a,b){
+            return b[3]-a[3]
+        })
+
+        var nextProcess = processesArrivedSorted[0]
+        var nextProcessIndex = sortedData.indexOf(nextProcess)
+        var executeTime = parseInt(nextProcess[2]);
+        var arrivalTime = parseInt(nextProcess[1]);
+        totalExecutionTime+=executeTime;
+        threshold+=executeTime
+
+        if(nextProcess[0]=="1"){
+            th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        }else if(nextProcess[0]=="2"){
+            th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        }else if(nextProcess[0]=="3"){
+            th += '<th id="three" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        }else if(nextProcess[0]=="4"){
+            th += '<th id="four" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + nextProcess[0] + '</th>';
+        }
+        
+        td += '<td>' + executeTime + '</td>';
+        sortedData.splice(nextProcessIndex,1)
+
+
+    }
+
+    $('fresh').html('<table id="resultTable"><tr>'
+    + th
+    + '</tr><tr>'
+    + td
+    + '</tr></table>'
+    );
+    animate(totalExecutionTime)
+
+    
+
 
 
 }
