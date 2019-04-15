@@ -266,11 +266,27 @@ var runSimulationFCFS = function(data){
         return a[1]-b[1]
     })
 
+    $('fresh').html('');
+    var th = '';
+    var td = '';
+    var totalExecutionTime = 0;
+
     sortedData.forEach(function(e){
-        console.log(e)
+        var executeTime = parseInt(e[2]);
+        totalExecutionTime+=executeTime;
+        th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        td += '<td>' + executeTime + '</td>';
     })
 
-    console.log(sortedData)
+    $('fresh').html('<table id="resultTable"><tr>'
+    + th
+    + '</tr><tr>'
+    + td
+    + '</tr></table>'
+    );
+    animate(totalExecutionTime)
+
+    console.log(totalExecutionTime)
 
 }
 

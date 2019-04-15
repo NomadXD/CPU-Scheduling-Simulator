@@ -1,10 +1,10 @@
-function animate() {
+function animate(totalExecutionTime) {
 	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
   
   $('#curtain').width($('#resultTable').width());
   $('#curtain').css({left: $('#resultTable').position().left});
   
-  var sum = 10;
+  var sum = totalExecutionTime;
 //   $('.exectime').each(function() {
 //       sum += Number($(this).val());
 //   });
@@ -27,25 +27,25 @@ function animationStep(steps, cur) {
   }
 }
 
-$('fresh').html('');
-var th = '';
-var td = '';
-var executeTime = 40;
-th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + (10 - 1) + '</th>';
-td += '<td>' + executeTime + '</td>';
-var executeTime = 20;
-th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + (10 - 1) + '</th>';
-td += '<td>' + executeTime + '</td>';
+// $('fresh').html('');
+// var th = '';
+// var td = '';
+// var executeTime = 40;
+// th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + (10 - 1) + '</th>';
+// td += '<td>' + executeTime + '</td>';
+// var executeTime = 20;
+// th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + (10 - 1) + '</th>';
+// td += '<td>' + executeTime + '</td>';
 
 
 
-$('fresh').html('<table id="resultTable"><tr>'
-+ th
-+ '</tr><tr>'
-+ td
-+ '</tr></table>'
-);
-animate()
+// $('fresh').html('<table id="resultTable"><tr>'
+// + th
+// + '</tr><tr>'
+// + td
+// + '</tr></table>'
+// );
+// animate()
 
 
 
