@@ -274,7 +274,16 @@ var runSimulationFCFS = function(data){
     sortedData.forEach(function(e){
         var executeTime = parseInt(e[2]);
         totalExecutionTime+=executeTime;
-        th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        if(e[0]=="1"){
+            th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }else if(e[0]=="2"){
+            th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }else if(e[0]=="3"){
+            th += '<th id="three" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }else if(e[0]=="4"){
+            th += '<th id="four" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }
+        
         td += '<td>' + executeTime + '</td>';
     })
 

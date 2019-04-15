@@ -28,14 +28,28 @@ input {
 }
 
 #one{
-    background: linear-gradient(red, lightgray);
+    background: linear-gradient(blue, lightgray);
     text-align: left;
     border: 1px solid black;
     height: 400 px;
 }
 
 #two{
-    background: linear-gradient(blue, lightgray);
+    background: linear-gradient(green, lightgray);
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+
+#three{
+    background: linear-gradient(yellow, lightgray);
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+
+#four{
+    background: linear-gradient(red, lightgray);
     text-align: left;
     border: 1px solid black;
     height: 400 px;
