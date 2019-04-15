@@ -1,31 +1,31 @@
-function animate(totalExecutionTime) {
-	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+// function animate(totalExecutionTime) {
+// 	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
   
-  $('#curtain').width($('#resultTable').width());
-  $('#curtain').css({left: $('#resultTable').position().left});
+//   $('#curtain').width($('#resultTable').width());
+//   $('#curtain').css({left: $('#resultTable').position().left});
   
-  var sum = totalExecutionTime;
-//   $('.exectime').each(function() {
-//       sum += Number($(this).val());
-//   });
+//   var sum = totalExecutionTime;
+// //   $('.exectime').each(function() {
+// //       sum += Number($(this).val());
+// //   });
   
-  console.log($('#resultTable').width());
-  var distance = $("#curtain").css("width");
+//   console.log($('#resultTable').width());
+//   var distance = $("#curtain").css("width");
   
-  animationStep(sum, 0);
-  jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
-}
+//   animationStep(sum, 0);
+//   jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+// }
 
-function animationStep(steps, cur) {
-	$('#timer').html(cur);
-	if(cur < steps) {
-		setTimeout(function(){ 
-   	     animationStep(steps, cur + 1);
-  	}, 500);
-  }
-  else {
-  }
-}
+// function animationStep(steps, cur) {
+// 	$('#timer').html(cur);
+// 	if(cur < steps) {
+// 		setTimeout(function(){ 
+//    	     animationStep(steps, cur + 1);
+//   	}, 500);
+//   }
+//   else {
+//   }
+// }
 
 // $('fresh').html('');
 // var th = '';

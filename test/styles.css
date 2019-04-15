@@ -1,9 +1,9 @@
-/* fresh th {
+fresh th {
     background: linear-gradient(red, lightgray);
     text-align: left;
     border: 1px solid black;
     height: 400 px;
-} */
+}
 fresh td {
     border: 1px solid black;
     border-bottom: 0px;
@@ -28,28 +28,28 @@ input {
 }
 
 #one{
-    background: linear-gradient(blue, lightgray);
+    background: #007bff;
     text-align: left;
     border: 1px solid black;
     height: 400 px;
 }
 
 #two{
-    background: linear-gradient(green, lightgray);
+    background: #28a745;
     text-align: left;
     border: 1px solid black;
     height: 400 px;
 }
 
 #three{
-    background: linear-gradient(yellow, lightgray);
+    background: #ffc107;
     text-align: left;
     border: 1px solid black;
     height: 400 px;
 }
 
 #four{
-    background: linear-gradient(red, lightgray);
+    background: #dc3545;
     text-align: left;
     border: 1px solid black;
     height: 400 px;

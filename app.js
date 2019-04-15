@@ -37,6 +37,35 @@ var renderPriorityForm = function(){
     $("#create-process-form").load("src/PriorityForm.html")
 }
 
+function animate(totalExecutionTime) {
+	$('fresh').prepend('<div id="curtain" style="position: absolute; right: 0; width:100%; height:100px;"></div>');
+  
+  $('#curtain').width($('#resultTable').width());
+  $('#curtain').css({left: $('#resultTable').position().left});
+  
+  var sum = totalExecutionTime;
+//   $('.exectime').each(function() {
+//       sum += Number($(this).val());
+//   });
+  
+  console.log($('#resultTable').width());
+  var distance = $("#curtain").css("width");
+  
+  animationStep(sum, 0);
+  jQuery('#curtain').animate({ width: '0', marginLeft: distance}, sum*1000/2, 'linear');
+}
+
+function animationStep(steps, cur) {
+	$('#timer').html(cur);
+	if(cur < steps) {
+		setTimeout(function(){ 
+   	     animationStep(steps, cur + 1);
+  	}, 500);
+  }
+  else {
+  }
+}
+
 
 if(document.getElementById("btn-submit-index")){
     document.querySelector("#btn-submit-index").addEventListener("click",function(e){
@@ -147,8 +176,8 @@ document.getElementById("btn-submit-sim").addEventListener('click',function(e){
     e.preventDefault()
     var temp = getSelection()
     console.log(temp)
-    runSimulationFCFS(temp)
-
+    //runSimulationFCFS(temp)
+    runSimulationSJF(temp)
 
 })
 
@@ -296,6 +325,44 @@ var runSimulationFCFS = function(data){
     animate(totalExecutionTime)
 
     console.log(totalExecutionTime)
+
+}
+
+var runSimulationSJF =function(data){
+
+    var sortedData = data.sort(function(a,b){
+        return a[2]-b[2]
+    })
+
+    $('fresh').html('');
+    var th = '';
+    var td = '';
+    var totalExecutionTime = 0;
+
+    sortedData.forEach(function(e){
+        var executeTime = parseInt(e[2]);
+        totalExecutionTime+=executeTime;
+        if(e[0]=="1"){
+            th += '<th id="one" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }else if(e[0]=="2"){
+            th += '<th id="two" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }else if(e[0]=="3"){
+            th += '<th id="three" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }else if(e[0]=="4"){
+            th += '<th id="four" style="height: 60px; width: ' + executeTime * 20 + 'px;">P' + e[0] + '</th>';
+        }
+        
+        td += '<td>' + executeTime + '</td>';
+    })
+
+    $('fresh').html('<table id="resultTable"><tr>'
+    + th
+    + '</tr><tr>'
+    + td
+    + '</tr></table>'
+    );
+    animate(totalExecutionTime)
+
 
 }
 
