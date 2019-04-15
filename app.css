@@ -1,0 +1,197 @@
+h1{
+    text-align: center;
+    text-decoration: blue;    
+}
+
+h5{
+    text-align: center;
+    text-decoration: blue;
+}
+
+#option1{
+    align-self: left;
+}
+
+#optradio{
+    align-self: left;
+}
+
+#opt-btn-container{
+    float: left;
+    color: #000;
+    padding-left: 30px;
+    padding-right: 30px;  
+    
+}
+
+#radio-buttons{
+    width: 50%;
+}
+
+.container {
+    overflow: hidden;
+}
+.column {
+    float: left;
+    margin: 10px;
+    padding-bottom: 100%;
+    margin-bottom: -100%;
+
+}
+
+#process-table-div{
+    padding-left: 10px;
+    align-self: left;  
+}
+
+#process-table{
+    border-top-color: #000;
+    border-top-width: 10px;
+    
+    
+}
+
+#create-process-form{
+    padding-left: 10px;
+    align-items: left;
+}
+
+div[class="row"] {
+    outline: 1px dotted rgba(0, 0, 0, 0.25);
+}
+
+div[class^="col-"] {
+    background-color: rgba(255, 0, 0, 0.2);
+    outline: 1px dotted rgba(0, 0, 0, 0.5);
+    
+}
+
+#plain {
+    margin: 1em;
+    width: 70%;
+}
+.blue {
+	background: blue;
+}
+		
+.red {
+	background: red;
+}
+.green {
+	background: green;
+}
+		
+.yellow {
+	background: yellow;
+}
+
+#canvas{
+    padding: 10px;
+}
+
+p{
+    padding-top: 20px;
+}
+
+
+
+
+fresh th {
+    background: linear-gradient(red, lightgray);
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+fresh td {
+    border: 1px solid black;
+    border-bottom: 0px;
+    /*border-right: 0;*/
+    height: 20px;
+    text-align: left;
+}
+
+div th, div td {
+    /* border: 1px solid black; */
+    text-align: center;
+}
+table {
+    display: inline;
+    border-collapse: collapse;
+}
+input {
+    text-align: center;
+}
+#curtain {
+  background-color: white;
+}
+
+#one{
+    background: #007bff;
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+
+#two{
+    background: #28a745;
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+
+#three{
+    background: #ffc107;
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+
+#four{
+    background: #dc3545;
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .progress {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

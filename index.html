@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="test/styles.css"> -->
+    <!-- <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bootstrap.min.css"> -->
+    
+    <title>CPU Scheduling Algorithm Simulator</title>
+  </head>
+  <body>
+    <h1>CPU Scheduling Algorihm Simulator</h1>
+
+    <div class="container-fluid" id="opt-btn-container">
+        <div class="row">
+                <div class="col-3" id="radio-buttons">
+                        <label><h3>Scheduling Algorithms</h3></label>
+                        <div class="radio" id="opt1" onclick=renderFCFSTable(),renderFCFSForm()>
+                            <label><input type="radio" name="optradio" value="fcfs" checked="checked">FCFS</label>
+                        </div>
+                        <div class="radio" id="opt2" onclick="renderSJFTable(),renderSJFForm()">
+                                <label><input type="radio" name="optradio" value="sjf">SJF</label>
+                        </div>
+                        <div class="radio" id="opt3" onclick="renderRoundRobinTable(),renderRoundRobinForm()">
+                                <label><input type="radio" name="optradio" value="rr">Round Robin</label>
+                        </div>
+                        <div class="radio" id="opt4" onclick="renderPriorityTable(),renderPriorityForm()">
+                                <label><input type="radio" name="optradio" value="pr">Priority Scheduling</label>
+                        </div>
+                </div>
+
+                <div class="col-3" id="process-table-div">
+                <label for="process-table-div"><h5>Process Details Table</h5></label>
+                <table class="table" id="process-table-index">
+                        <thead>
+                                <tr>
+                                <th scope="col">PID</th>
+                                <th scope="col">Arrival Time</th>
+                                <th scope="col">Execute Time</th>
+                                <th scope="col">Service Time</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="bg-primary">
+                                <th scope="row">1</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                </tr>
+                                <tr class="bg-success">
+                                <th scope="row">2</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                </tr>
+                                <tr class="bg-warning">
+                                <th scope="row">3</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                </tr>
+                                <tr class="bg-danger">
+                                <th scope="row">4</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                </tr>
+                        </tbody>
+                </table>
+                       
+                </div>
+        
+                <div class="col-3" id="create-process-form">
+                <label for="create-process-form"><h5>Add Process</h5></label>
+                <form id="add-process-index">
+                        <label for="process-id-list">Process ID</label>
+                        <select class="form-control form-control-sm" id="process-id-list-index">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        </select>
+                        <div class="form-group">
+                                <label for="arrival-time">Arrival time</label>
+                                <input type="text" class="form-control" id="arrival-time-index" placeholder="Enter arrival time of the process">
+                                <!-- <small id="arrival-time-help" class="form-text text-muted">Maximum limit for arrival time:</small> -->
+                        </div>
+                        <div class="form-group">
+                                <label for="execute-time">Execute time</label>
+                                <input type="text" class="form-control" id="execute-time-index" placeholder="Enter execute time of the process">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btn-submit-index">Add process</button>
+                </form>
+                </div>
+                <div class="col-3">
+                        <button type="button" class="btn btn-primary" id="btn-submit-sim">Start Simulation</button>
+                    
+                </div>
+
+        </div>
+        <label>Grantt Timing Diagram</label>
+        <div id="canvas">
+                <fresh></fresh>
+                <p>
+                Timer: <strong id="timer"></strong> sec
+                </p>
+                
+        </div>
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="col-sm">
+                                sfvd
+                        </div>
+                        <div class="col-sm">
+                                svddvs
+                        </div>
+                        <div class="col-sm">
+                                vsadfvdsa
+                        </div>
+                        <div class="col-sm">
+                                avvad
+                        </div>
+        
+                </div>
+        </div>
+
+
+
+
+       
+    </div>
+    
+    
+
+
+    <!-- Optional JavaScript -->
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <!-- <script src="src/jquery-3.2.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script src="test/app.js"></script>
+    <!-- <script src='src/FCFS.js'></script> -->
+</body>
+</html>
